@@ -1,22 +1,22 @@
 # log
-NEWGS-21661 = 1
-NEWGS-21819 = 3
-day off = 0.5
+meeting = 0.5
+meeting = 1
 
+1.5 6.5
 
 # 需做
-1. 领券中心下滑，优惠券被遮住
-
-
+1. dialog测试
+2. 旋转屏幕测试
+3. webview测试
 
 # 问题
+        Context newContext;
+        DisplayMetrics displayMetrics = baseContext.getResources().getDisplayMetrics();
+        final float targetDensity = (float) (displayMetrics.widthPixels / 360);
+        final int targetDensityDpi = (int) (160 * targetDensity);
 
-     	val pattern = "((http|https):\\/\\/[\\w\\-_]+(\\.[\\w\\-_]+)+([\\w\\-\\.,@?^=%&amp;:/~\\+#]*[\\w\\-\\@?^=%&amp;/~\\+#])?)"
-     	val urlText = "完步计划没https://v.youku.com/v_show/id_XNTk1NDE1MjY5Mg==.html?spm=a2hja.149197凯有此问题"
-        val r = Pattern.compile(pattern)
-        val m = r.matcher(urlText)
-        while (m.find()) {
-            println(m.group())
-        }
+        Configuration configuration = baseContext.getResources().getConfiguration();
+        configuration.densityDpi = targetDensityDpi;
 
-完整的文字信息显示没有显示完整的文字信息显示没有显示完整的文字信息显示没有显示完整的文字信息显示没有显示完步计划没https://v.youku.com/v_show/id_XNTk1NDE1MjY5Mg==.html?spm=a2hja.149197凯有此问题凯有此问题凯有此问题凯有此问题凯有此问题凯有此问题凯有此问题凯有此问题凯
+        newContext = baseContext.createConfigurationContext(configuration);
+        super.attachBaseContext(newContext);
