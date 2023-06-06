@@ -1,22 +1,25 @@
 # log
-meeting = 0.5
-meeting = 1
-
-1.5 6.5
+report = 2
+web = 3.5
+5.5 = 2.5
 
 # 需做
-1. dialog测试
-2. 旋转屏幕测试
-3. webview测试
+1. ppt中的gs和wechat做分页
+2. 列举出具体存在哪些难点
+3. UGC和小程序的action bar color为什么要做
+4. 小程序头像编辑那里可以注重讲下我们如何做头像和昵称的合规检查的
+5. 最后加小程序的开发，克服的苦难
+6. 
+
 
 # 问题
-        Context newContext;
-        DisplayMetrics displayMetrics = baseContext.getResources().getDisplayMetrics();
-        final float targetDensity = (float) (displayMetrics.widthPixels / 360);
-        final int targetDensityDpi = (int) (160 * targetDensity);
+1. 如果更改了Density，那么createBitmap也需要增加Density
+2. 视频无法播放
+3. preview_card_bg图资有问题，下方有空白间距
 
-        Configuration configuration = baseContext.getResources().getConfiguration();
-        configuration.densityDpi = targetDensityDpi;
 
-        newContext = baseContext.createConfigurationContext(configuration);
-        super.attachBaseContext(newContext);
+# 反思
+NEWGS-21950(动态中的文本被识别成网页链接)
+原因：
+    1. url本身前后端应留空格。
+    2. 鸿蒙系统自身会将url识别错误。
